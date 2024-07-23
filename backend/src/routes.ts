@@ -5,6 +5,7 @@ import {
   FastifyRequest,
 } from "fastify";
 import { CreateCustomerController } from "./controllers/CreateCustomerController";
+import { ListCustomersController } from "./controllers/ListCustomersController";
 
 export async function routes(
   fastify: FastifyInstance,
@@ -21,6 +22,13 @@ export async function routes(
     "/customer",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new CreateCustomerController().handle(request, reply);
+    }
+  );
+
+  fastify.get(
+    "/customers",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListCustomersController().handle(request, reply);
     }
   );
 }
