@@ -35,6 +35,9 @@ const App = () => {
     });
 
     setCustomers((allCustomers) => [...allCustomers, response.data]);
+
+    nameRaf.current.value = "";
+    emailRaf.current.value = "";
   }
 
   async function handleDelete(id: string) {
